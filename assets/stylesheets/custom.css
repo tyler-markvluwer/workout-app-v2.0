@@ -1,0 +1,133 @@
+/* GLOBALS */
+
+body {
+    padding: 0px;
+}
+
+.top {
+    margin-top: -21px;
+}
+
+.navbar {
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizelegibility;
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+.btn {
+    font-weight: bold;
+}
+
+/* WORKOUTS HOME */
+#workouts-home {
+    background: url('../img/weights.jpg') 50% 0 repeat fixed;
+    min-height: 500px;
+    padding: 40px 0;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+#workouts-home h1 {
+    text-align: center;
+}
+
+#workouts-home article {
+    width: 100%;
+    text-align: center;
+}
+
+/* OPT IN */
+#optin {
+    background: #3e4249;
+    padding: 15px 0;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-size: 1.2em;
+}
+
+#optin p {
+    margin: 6px 0 0 0;
+}
+
+/* WORKOUT LIST */
+#workouts {
+    background: url('../img/tile.jpg') top left repeat;
+}
+
+#workouts h1 {
+    text-align: center;
+    padding-bottom: 22px;
+}
+
+.workout {
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background: white;
+    padding: 0 17px;
+    border: solid lightgray 1px;
+    margin-bottom: 24px;
+}
+
+.workout header {
+    padding-bottom: 11px;
+}
+
+.workout-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+/* WORKOUT */
+.active-exercise {
+    background: rgba(24, 188, 156, 0.23);
+}
+
+.inactive-exercise {
+    opacity: .6;
+}
+
+.circle {
+    display: inline-table;
+    width: 140px;
+    height: 140px;
+    margin: 10px 5px;
+    border-radius: 100%;
+    background: #3AC6AA;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.center-parent {
+    display: table;
+}
+
+.center {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.num-circle {
+    text-align: center;
+    color: white;
+    font-size: 1.4em;
+}
+
+.timer-bell {
+    padding-left: 6px;
+}

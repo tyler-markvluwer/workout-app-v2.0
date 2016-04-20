@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>{{workout.workout_name}}</h1>
+    <ul>
+        <li *ngFor="#exercise of workout.exercises">
+            {{ exercise.name }}
+        </li>
+    </ul>
+</div>
