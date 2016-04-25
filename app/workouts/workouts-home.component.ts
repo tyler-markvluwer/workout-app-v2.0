@@ -24,8 +24,8 @@ export class WorkoutsHomeComponent implements OnInit{
     ngOnInit() {
         this._workoutService.getWorkouts()
             .subscribe(workouts => {
-                console.log("here");
-                console.log(workouts);
+                // console.log("here");
+                // console.log(workouts);
                 this.workouts.push(workouts);
             });
     }

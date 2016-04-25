@@ -46,8 +46,8 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', '../shared
                     var _this = this;
                     this._workoutService.getWorkouts()
                         .subscribe(function (workouts) {
-                        console.log("here");
-                        console.log(workouts);
+                        // console.log("here");
+                        // console.log(workouts);
                         _this.workouts.push(workouts);
                     });
                 };

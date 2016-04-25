@@ -43,15 +43,22 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', '../shared
                     this._routeParams = _routeParams;
                     this.isLoading = true;
                     this.workoutName = decodeURIComponent(this._routeParams.get("name"));
+                    this.totalSetsCompleted = 0; // total sets for entire workout
                 }
                 WorkoutComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     if (this.workoutName) {
-                        this._workoutService.getWorkout(name)
+                        this._workoutService.getWorkout(this.workoutName)
                             .subscribe(function (workout) {
+                            // console.log("getting workout:", this.workoutName);
                             // console.log(workout);
                             _this.workout = workout;
                             _this.setCurrExercise(workout.exercises[0].name);
+                        });
+                        this._workoutService.getTotalSetsForWorkout(this.workoutName)
+                            .subscribe(function (sets) {
+                            console.log("total sets:", sets);
+                            _this.totalSets = sets;
                         });
                     }
                 };
@@ -65,6 +72,7 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', '../shared
                 WorkoutComponent.prototype.decSetsRemaining = function () {
                     if (this.setsRemaining) {
                         this.setsRemaining--;
+                        this.totalSetsCompleted++;
                     }
                 };
                 WorkoutComponent = __decorate([

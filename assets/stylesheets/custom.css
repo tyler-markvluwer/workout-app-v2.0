@@ -2,6 +2,9 @@
 
 body {
     padding: 0px;
+    font-family: 'Raleway', Helvetica, sans-serif;
+    font-size: 16px;
+
 }
 
 .top {
@@ -36,6 +39,10 @@ h1 {
     color: white;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+}
+
+.logo {
+    width: 100%;
 }
 
 #workouts-home h1 {
@@ -92,6 +99,14 @@ h1 {
 }
 
 /* WORKOUT */
+#workout-component {
+    /*background: url('../img/tile.jpg') top left repeat;*/
+}
+
+#timer-wrapper {
+    padding: 5px;
+}
+
 .active-exercise {
     background: rgba(24, 188, 156, 0.23);
 }
@@ -130,4 +145,8 @@ h1 {
 
 .timer-bell {
     padding-left: 6px;
+}
+
+.exercise-picker {
+    height: 100%;
 }

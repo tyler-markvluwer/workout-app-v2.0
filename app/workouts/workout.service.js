@@ -35,9 +35,20 @@ System.register(['angular2/http', 'rxjs/add/operator/map', 'rxjs/add/observable/
                     return Observable_1.Observable.fromArray(this.mockData);
                 };
                 WorkoutService.prototype.getWorkout = function (day) {
-                    // console.log("getting workout:", day);
+                    console.log("getting workout:", day);
                     var workoutForDay = this.mockData.filter(function (workout) { return workout.workout_name.indexOf(day) >= 0; });
                     return Observable_1.Observable.fromArray(workoutForDay);
+                };
+                WorkoutService.prototype.getTotalSetsForWorkout = function (day) {
+                    var totalSets = 0;
+                    var workoutForDay = this.mockData.filter(function (workout) { return workout.workout_name.indexOf(day) >= 0; });
+                    var workout = workoutForDay[0];
+                    var length = workout.exercises.length;
+                    for (var i = 0; i < length; ++i) {
+                        var exercise = workout.exercises[0];
+                        totalSets += exercise.sets;
+                    }
+                    return Observable_1.Observable.fromArray([totalSets]);
                 };
                 WorkoutService = __decorate([
                     core_1.Injectable(), 

@@ -6,7 +6,25 @@ export interface Exercise {
     rest: number
 }
 
-export interface Workout {
-    workout_name: string,
+export class Workout {
+    currIndex: number = 0;
+    workout_name: string;
     exercises: Array<Exercise>;
+    
+    constructor(workoutJson: any) {
+        this.workout_name = workoutJson.workout_name;
+        this.exercises = workoutJson.exercises;
+    }
+    
+    getCurrentExercise() {
+        return this.exercises[this.currIndex];
+    }
+    
+    setCurrentExerciseByName(exerciseName: string) {
+        //
+    }
+    
+    nextExercise() {
+        this.currIndex++;
+    }
 }

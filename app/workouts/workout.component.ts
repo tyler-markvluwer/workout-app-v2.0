@@ -8,6 +8,7 @@ import {WorkoutService} from './workout.service'
 import {Workout, Exercise} from './workout'
 import {WorkoutDetailComponent} from './workout-detail.component'
 import {TimerComponent} from '../shared/timer.component'
+import {AppModel} from '../model/app.model'
 
 @Component({
     templateUrl: '/app/workouts/workout.component.html',
@@ -20,7 +21,9 @@ export class WorkoutComponent implements OnInit {
     workoutName: string = decodeURIComponent(this._routeParams.get("name"));
     currExerciseName: string;
     currExercise: Exercise;
-    setsRemaining: number;
+    setsRemaining: number; // sets remaining for current exercise
+    totalSetsCompleted: number = 0; // total sets for entire workout
+    totalSets: number;
     
     constructor(
         private _workoutService: WorkoutService,
@@ -31,11 +34,18 @@ export class WorkoutComponent implements OnInit {
     
     ngOnInit() {
         if (this.workoutName) {
-            this._workoutService.getWorkout(name)
+            this._workoutService.getWorkout(this.workoutName)
                 .subscribe(workout => {
+                    // console.log("getting workout:", this.workoutName);
                     // console.log(workout);
+                    
                     this.workout = workout;
                     this.setCurrExercise(workout.exercises[0].name);
+                })
+            this._workoutService.getTotalSetsForWorkout(this.workoutName)
+                .subscribe(sets => {
+                    console.log("total sets:", sets);
+                    this.totalSets = sets;
                 })
         }
     }
@@ -50,6 +60,7 @@ export class WorkoutComponent implements OnInit {
     decSetsRemaining() {
         if (this.setsRemaining) {
             this.setsRemaining--;
+            this.totalSetsCompleted++;
         }
     }
 }

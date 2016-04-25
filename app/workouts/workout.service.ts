@@ -20,9 +20,22 @@ export class WorkoutService {
     }
     
     getWorkout(day: string): Observable<any> {
-        // console.log("getting workout:", day);
+        console.log("getting workout:", day);
         var workoutForDay = this.mockData.filter((workout) => workout.workout_name.indexOf(day) >= 0);
         return Observable.fromArray(workoutForDay);
+    }
+    
+    getTotalSetsForWorkout(day: string): Observable<any> {
+        var totalSets = 0;
+        var workoutForDay = this.mockData.filter((workout) => workout.workout_name.indexOf(day) >= 0);
+        var workout = workoutForDay[0];
+        var length = workout.exercises.length;
+        for (var i=0; i < length; ++i) {
+            var exercise = workout.exercises[0];
+            totalSets += exercise.sets;
+        }     
+        
+        return Observable.fromArray([totalSets]);
     }
     
     // getUsers() : Observable<any> {
