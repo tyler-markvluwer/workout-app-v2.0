@@ -31,7 +31,7 @@ export class WorkoutService {
         var workout = workoutForDay[0];
         var length = workout.exercises.length;
         for (var i=0; i < length; ++i) {
-            var exercise = workout.exercises[0];
+            var exercise = workout.exercises[i];
             totalSets += exercise.sets;
         }     
         

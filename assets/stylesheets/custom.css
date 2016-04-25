@@ -144,9 +144,25 @@ h1 {
 }
 
 .timer-bell {
+    display: inline;
     padding-left: 6px;
 }
 
-.exercise-picker {
-    height: 100%;
+.next-circle {
+    background: #F39C12;
+}
+
+.exercise-picker .col-sm-4 {
+    overflow-y: scroll;
+    height: 75%;
+}
+
+@media screen and (max-width: 768px) {
+    #workouts-home {
+        min-height: 72%;
+    }
+
+    .exercise-picker {
+        height: 140px;
+    }
 }

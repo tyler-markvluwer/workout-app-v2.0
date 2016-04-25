@@ -69,7 +69,24 @@ System.register(['angular2/core', 'angular2/router', 'angular2/http', '../shared
                     this.currExercise = this.workout.exercises.filter(function (exercise) { return exercise.name == _this.currExerciseName; })[0];
                     this.setsRemaining = this.currExercise.sets;
                 };
+                WorkoutComponent.prototype.setToNextExercise = function () {
+                    var currIndex = this.getCurrExerciseIndex();
+                    if (currIndex < this.workout.exercises.length - 1) {
+                        var nextExercise = this.workout.exercises[currIndex + 1];
+                        this.setCurrExercise(nextExercise.name);
+                    }
+                };
+                WorkoutComponent.prototype.getCurrExerciseIndex = function () {
+                    for (var i = 0; i < this.workout.exercises.length; ++i) {
+                        var exercise = this.workout.exercises[i];
+                        if (exercise.name == this.currExercise.name) {
+                            return i;
+                        }
+                    }
+                    return null;
+                };
                 WorkoutComponent.prototype.decSetsRemaining = function () {
+                    console.log(this.totalSets, this.totalSetsCompleted);
                     if (this.setsRemaining) {
                         this.setsRemaining--;
                         this.totalSetsCompleted++;

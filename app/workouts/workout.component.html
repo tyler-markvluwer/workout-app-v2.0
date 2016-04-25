@@ -41,11 +41,19 @@
                 <h1>{{currExerciseName}}</h1>
                 <div class="row">
                     <div
+                        *ngIf="setsRemaining"
                         class="circle clickable"
                         (click)="decSetsRemaining()"
                         [style.opacity]="setsRemaining/currExercise.sets"
                     >
                         <span class="center num-circle">{{setsRemaining}} sets</span>
+                    </div>
+                    <div
+                        *ngIf="!setsRemaining"
+                        class="circle clickable next-circle"
+                        (click)="setToNextExercise()"
+                    >
+                        <span class="center num-circle">Next <i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                     </div>
                     <div class="circle">
                         <span class="center num-circle">{{currExercise.reps_max}} reps</span>

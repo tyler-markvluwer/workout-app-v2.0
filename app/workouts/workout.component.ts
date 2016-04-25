@@ -56,8 +56,28 @@ export class WorkoutComponent implements OnInit {
         this.currExercise = this.workout.exercises.filter(exercise => exercise.name == this.currExerciseName)[0];
         this.setsRemaining = this.currExercise.sets;
     }
+
+    setToNextExercise() {
+        var currIndex: number = this.getCurrExerciseIndex();
+        if (currIndex < this.workout.exercises.length - 1) { // second to last
+            var nextExercise: Exercise = this.workout.exercises[currIndex + 1];
+            this.setCurrExercise(nextExercise.name);
+        }
+    }
+
+    getCurrExerciseIndex() {
+        for (var i = 0; i < this.workout.exercises.length; ++i) {
+            var exercise: Exercise = this.workout.exercises[i];
+            if (exercise.name == this.currExercise.name) {
+                return i;
+            }
+        }
+
+        return null;
+    }
     
     decSetsRemaining() {
+        console.log(this.totalSets, this.totalSetsCompleted);
         if (this.setsRemaining) {
             this.setsRemaining--;
             this.totalSetsCompleted++;
